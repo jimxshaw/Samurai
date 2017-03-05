@@ -11,7 +11,7 @@ namespace SamuraiAppCore.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=OWNER-PC\\SQLEXPRESS;Database=SamuraiCoreData;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=OWNER-PC\\SQLEXPRESS;Database=SamuraiDataCore;Trusted_Connection=True;");
         }
     }
 }
