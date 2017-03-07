@@ -7,7 +7,7 @@
 
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>f3bc57a3-44d8-467d-8612-eb1208522c35</ProjectGuid>
+    <ProjectGuid>ba393e75-ede8-4587-a6cc-a8216b6958e6</ProjectGuid>
     <RootNamespace>SamuraiAppCore.Data</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>

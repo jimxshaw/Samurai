@@ -3,21 +3,21 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using SamuraiApp.Data;
+using SamuraiAppCore.Data;
 
-namespace SamuraiApp.Data.Migrations
+namespace SamuraiAppCore.Data.Migrations
 {
     [DbContext(typeof(SamuraiContext))]
-    [Migration("20170307005451_TableJoin")]
-    partial class TableJoin
+    [Migration("20170307044216_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
+                .HasAnnotation("ProductVersion", "1.1.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SamuraiApp.Domain.Battle", b =>
+            modelBuilder.Entity("SamuraiAppCore.Domain.Battle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -33,7 +33,7 @@ namespace SamuraiApp.Data.Migrations
                     b.ToTable("Battles");
                 });
 
-            modelBuilder.Entity("SamuraiApp.Domain.Quote", b =>
+            modelBuilder.Entity("SamuraiAppCore.Domain.Quote", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -49,51 +49,36 @@ namespace SamuraiApp.Data.Migrations
                     b.ToTable("Quotes");
                 });
 
-            modelBuilder.Entity("SamuraiApp.Domain.Samurai", b =>
+            modelBuilder.Entity("SamuraiAppCore.Domain.Samurai", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BattleId");
 
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BattleId");
+
                     b.ToTable("Samurais");
                 });
 
-            modelBuilder.Entity("SamuraiApp.Domain.SamuraiBattle", b =>
+            modelBuilder.Entity("SamuraiAppCore.Domain.Quote", b =>
                 {
-                    b.Property<int>("BattleId");
-
-                    b.Property<int>("SamauraiId");
-
-                    b.Property<int?>("SamuraiId");
-
-                    b.HasKey("BattleId", "SamauraiId");
-
-                    b.HasIndex("SamuraiId");
-
-                    b.ToTable("SamuraiBattle");
-                });
-
-            modelBuilder.Entity("SamuraiApp.Domain.Quote", b =>
-                {
-                    b.HasOne("SamuraiApp.Domain.Samurai", "Samurai")
+                    b.HasOne("SamuraiAppCore.Domain.Samurai", "Samurai")
                         .WithMany("Quotes")
                         .HasForeignKey("SamuraiId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SamuraiApp.Domain.SamuraiBattle", b =>
+            modelBuilder.Entity("SamuraiAppCore.Domain.Samurai", b =>
                 {
-                    b.HasOne("SamuraiApp.Domain.Battle", "Battle")
-                        .WithMany("SamuraiBattles")
+                    b.HasOne("SamuraiAppCore.Domain.Battle")
+                        .WithMany("Samurais")
                         .HasForeignKey("BattleId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("SamuraiApp.Domain.Samurai", "Samurai")
-                        .WithMany("SamuraiBattles")
-                        .HasForeignKey("SamuraiId");
                 });
         }
     }

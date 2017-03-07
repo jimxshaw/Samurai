@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{592D2DBE-2EA1-481D-B69C-8C92AE7F0CF7}</ProjectGuid>
+    <ProjectGuid>{AEEAFB15-BF76-44A8-8F7F-AADDC2774D38}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SamuraiApp.UI</RootNamespace>
