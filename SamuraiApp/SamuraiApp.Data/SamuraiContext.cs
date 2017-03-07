@@ -13,7 +13,7 @@ namespace SamuraiApp.Data
         {
             // Many-to-many relationships must define a joining key between two classes.
             modelBuilder.Entity<SamuraiBattle>()
-                        .HasKey(s => new { s.BattleId, s.SamauraiId });
+                        .HasKey(s => new { s.BattleId, s.SamuraiId });
 
             base.OnModelCreating(modelBuilder);
         }
